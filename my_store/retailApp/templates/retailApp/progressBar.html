@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Progress Bar Notification</title>
+    <style>
+      .notification {
+        background-color: #f5f5f5;
+        padding: 15px;
+        border-radius: 5px;
+        box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+        position: relative; /* Needed for close button positioning (optional) */
+      }
+
+      .message {
+        margin-bottom: 10px;
+      }
+
+      .progress-bar {
+        height: 5px;
+        background-color: #ddd;
+        border-radius: 5px;
+        overflow: hidden;
+      }
+
+      .progress {
+        width: 0%;
+        height: 100%;
+        background-color: #007bff;
+        transition: width 1s ease-in-out; /* Animation for progress bar */
+      }
+
+      /* Optional styles for a close button */
+      .notification::after {
+        content: "\00d7"; /* Close icon character */
+        font-size: 20px;
+        position: absolute;
+        top: 5px;
+        right: 5px;
+        cursor: pointer;
+        color: #aaa;
+      }
+
+      .notification::after:hover {
+        color: #333;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="notification">
+      <div class="message">Uploading file...</div>
+      <div class="progress-bar">
+        <div class="progress"></div>
+      </div>
+    </div>
+
+    <button id="show-notification">Show Notification</button>
+
+    <script src="script.js"></script>
+  </body>
+</html>

@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Shopping Cart</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        margin: 20px;
+      }
+
+      h1 {
+        text-align: center;
+        margin-bottom: 20px;
+      }
+
+      .cart-items {
+        /* Styles for the section containing cart items */
+      }
+
+      .cart-summary {
+        margin-top: 20px;
+        border: 1px solid #ddd;
+        padding: 10px;
+        border-radius: 3px;
+      }
+
+      .cart-summary p {
+        margin-bottom: 5px;
+      }
+
+      .cart-summary p strong {
+        font-weight: bold;
+      }
+
+      .checkout-button {
+        background-color: #4caf50;
+        color: white;
+        padding: 10px 20px;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+        text-decoration: none;
+        display: block;
+        margin-top: 10px;
+        text-align: center;
+      }
+
+      .checkout-button:hover {
+        background-color: #45a049;
+      }
+
+      h2 {
+        text-align: center;
+        margin-bottom: 20px;
+      }
+
+      .wishlist-items {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+      }
+
+      .wishlist-items li {
+        display: flex;
+        align-items: center;
+        margin-bottom: 15px;
+        border-bottom: 1px solid #ddd;
+        padding-bottom: 10px;
+      }
+
+      .wishlist-items li img {
+        width: 100px;
+        height: 100px;
+        object-fit: cover;
+        margin-right: 10px;
+      }
+
+      .wishlist-items li .product-details {
+        flex-grow: 1;
+      }
+
+      .wishlist-items li .product-details h3 {
+        margin: 0;
+        padding: 0;
+      }
+
+      .wishlist-items li .product-details p {
+        margin-top: 5px;
+        font-weight: lighter;
+      }
+
+      .empty-wishlist-message {
+        text-align: center;
+        font-style: italic;
+        margin-bottom: 20px;
+      }
+
+      .view-all-products-button {
+        background-color: #eee;
+        border: none;
+        padding: 10px 20px;
+        border-radius: 3px;
+        cursor: pointer;
+        text-decoration: none;
+        display: block;
+        margin: 0 auto;
+      }
+
+      .view-all-products-button:hover {
+        background-color: #ddd;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Shopping Cart</h1>
+
+    <section class="cart-items"></section>
+
+    <section class="cart-summary">
+      <h2>Cart Summary</h2>
+      <p>Subtotal: $<span id="subtotal">0.00</span></p>
+      <p>Shipping: $<span id="shipping-cost">Free</span></p>
+      <p>
+        <strong>Total: $<span id="total-price">0.00</span></strong>
+      </p>
+      <a href="#" class="checkout-button">Proceed to Checkout</a>
+    </section>
+    <h2>Wishlist</h2>
+
+    <ul class="wishlist-items"></ul>
+
+    <p class="empty-wishlist-message">Your wishlist is currently empty.</p>
+
+    <a href="#" class="view-all-products-button">View All Products</a>
+  </body>
+</html>

@@ -1,0 +1,190 @@
+<!-- myapp/templates/myapp/index.html -->
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>My App</title>
+
+    <style>
+      .live-chat-container {
+        position: fixed; /* Keep the chat window in a fixed position */
+        bottom: 20px; /* Position at the bottom of the screen */
+        right: 20px; /* Position at the right of the screen */
+        width: 300px; /* Set the width of the chat window */
+        background-color: #fff; /* Set the background color */
+        border-radius: 5px; /* Add rounded corners */
+        box-shadow: 0 0 5px rgba(0, 0, 0, 0.2); /* Add a slight shadow */
+        transition: all 0.3s ease-in-out; /* Add a smooth transition effect */
+      }
+
+      .live-chat-container.active {
+        /* Styles for the active chat window */
+        width: 400px; /* Expand the width when chat is active */
+      }
+
+      .live-chat-button {
+        background-color: #4caf50; /* Set the button background color */
+        color: white; /* Set the button text color */
+        padding: 10px 20px; /* Add padding to the button */
+        border: none; /* Remove button border */
+        border-radius: 5px; /* Add rounded corners */
+        cursor: pointer; /* Set the cursor to a pointer on hover */
+        display: flex; /* Allow aligning icon and text */
+        align-items: center; /* Align icon and text vertically */
+        transition: all 0.3s ease-in-out; /* Add a smooth transition effect */
+      }
+
+      .live-chat-button:hover {
+        background-color: #45a049; /* Change button color on hover */
+      }
+
+      .live-chat-button i {
+        /* Styles for the chat icon */
+        margin-right: 5px; /* Add margin between icon and text */
+      }
+
+      .live-chat-window {
+        display: none; /* Initially hide the chat window */
+        padding: 10px; /* Add padding to the chat window */
+        overflow-y: scroll; /* Enable scrolling for long chat history */
+        height: 250px; /* Set the height of the chat window */
+      }
+
+      .live-chat-window.active {
+        display: block; /* Show the chat window when active */
+      }
+
+      .chat-header {
+        display: flex; /* Allow aligning title and close button */
+        justify-content: space-between; /* Distribute space between elements */
+        align-items: center; /* Align title and close button vertically */
+        padding-bottom: 10px; /* Add padding to the bottom */
+        border-bottom: 1px solid #ddd; /* Add a border to separate header */
+      }
+
+      .chat-header i {
+        /* Styles for the close button icon */
+        cursor: pointer; /* Set the cursor to a pointer on hover */
+      }
+
+      .chat-history {
+        display: flex;
+        /* Styles for the chat message container (can be customized further) */
+      }
+
+      .chat-input-container {
+        display: flex; /* Allow aligning text area and send button */
+      }
+
+      .chat-input-container textarea {
+        width: 100%; /* Set the width of the text area */
+        padding: 10px; /* Add padding to the text area */
+        border: 1px solid #ddd; /* Add a border to the text area */
+        border-radius: 3px; /* Add rounded corners */
+        resize: none; /* Disable resizing of the text area */
+      }
+
+      .chat-input-container button {
+        background-color: #4caf50; /* Set the send button background color */
+        color: white; /* Set the send button text color */
+        padding: 10px 20px; /* Add padding to the send button */
+        border: none; /* Remove button border */
+        border-radius: 3px; /* Add rounded corners */
+        cursor: pointer; /* Set the cursor to a pointer on hover */
+        transition: all 0.3s ease-in-out; /* Add a smooth transition effect */
+      }
+
+      .chat-input-container button:hover {
+        background-color: #45a049;
+      }
+
+      .head_links {
+        height: 10rem;
+
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+        flex-wrap: wrap;
+
+        border: 1px solid gray;
+        border-radius: 5px;
+        box-shadow: 5px 5px 5px lightslategray;
+
+        padding: 0 2.2rem;
+
+        & button {
+          height: 3rem;
+          width: 8rem;
+          background-color: transparent;
+          font-family: sans-serif;
+          font-size: 20px;
+          border: 1px solid gray;
+          border-radius: 5px;
+          box-shadow: 2px 2px 2px lightslategray;
+          cursor: pointer;
+          text-transform: capitalize;
+          margin-right: 1rem;
+        }
+
+        & button:hover{
+          background-color:green;
+          color: white;
+          box-shadow: 6px 6px black;
+          font-weight: 600;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <center><h1>ERP SYSTEM</h1></center>
+    <div class="head_links">
+      <a href="/users"><button>users</button></a>
+      <a href="/newUser"><button>newUsers</button></a>
+      <a href="/inventory"><button>inventory</button></a>
+      <a href="/test"><button>test</button></a>
+      <a href="/expense_tracker"><button>Finance</button></a>
+      <a href="/jobs"><button>Accounting</button></a>
+      <a href="/library"><button>CRM</button></a>
+      <a href="/img_edit"><button>Image</button></a>
+      <a href="/docs"><button>Reporting</button></a>
+      <a href="/scrapper"><button>Scrapper</button></a>
+      <a href="/analytics"><button>Analytics</button></a>
+      <a href="/booking"><button>HR</button></a>
+      <a href="/booking"><button>Marketing</button></a>
+      <a href="/booking"><button>Sales</button></a>
+      <a href="/booking"><button>Production</button></a>
+    </div>
+
+    <ul>
+      {% for model in mymodels %}
+      <li style="list-style: none">
+        <div>
+          <h3>{{ model.name }}: {{ model.description }}</h3>
+          <h5>{{model.price}}</h5>
+          <h6>{{model.created_at}}</h6>
+        </div>
+      </li>
+      {% endfor %}
+    </ul>
+
+    <div class="live-chat-container">
+      <button class="live-chat-button">
+        <i class="fas fa-comment"></i> <span>Chat Now</span>
+      </button>
+      <div class="live-chat-window">
+        <div class="chat-header">
+          <h2>Live Chat Support</h2>
+          <i class="fas fa-times"></i>
+        </div>
+        <div class="chat-history"></div>
+        <div class="chat-input-container">
+          <textarea
+            name="chat-message"
+            id="chat-message"
+            placeholder="Type your message..."
+          ></textarea>
+          <button type="button" id="send-message">Send</button>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

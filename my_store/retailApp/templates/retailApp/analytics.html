@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Analytical Report</title>
+    <style>
+      /* style.css */
+
+      .report-container {
+        max-width: 800px;
+        margin: 0 auto;
+        padding: 20px;
+      }
+
+      h1 {
+        text-align: center;
+      }
+
+      .report-section {
+        margin-bottom: 20px;
+      }
+
+      .report-section h2 {
+        margin-bottom: 10px;
+      }
+
+      img {
+        max-width: 100%;
+        height: auto;
+      }
+      .file_upload{
+        height: 5rem;
+        border: 1px solid lightgray;
+        box-shadow: 10px 10px 10px lightgray;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      .file_upload input,button{
+        margin-top: 10px;
+        margin-bottom: 10px;
+      }
+
+      .file_upload label{
+        text-transform: capitalize;
+        font-size: 16px;
+        font-weight: 400;
+        margin-right: 1rem;
+        color: blue;
+      }
+      .file_upload button{
+          background-color: transparent;
+          border: 1px solid gray;
+          height: 2rem;
+          width: 5rem;
+          border-radius: 5px;
+          box-shadow: 5px 5px 5px lightslategray;
+      }
+    </style>
+  </head>
+  <body>
+    <section>
+      <div class="file_upload">
+        <label for="">upload csv file</label><br>
+        <input type="file" name="file_upload" accept=".csv" id="file_upload" required><br>
+        <button type="submit">Submit</button>
+      </div>
+    </section>
+    <div class="report-container">
+      <h1>Analytical Report</h1>
+      <div class="report-section">
+        <h2>Key Findings</h2>
+        <p>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do
+          eiusmod tempor incididunt ut labore et dolore magna aliqua.
+        </p>
+      </div>
+      <div class="report-section">
+        <h2>Data Visualization</h2>
+        <img src="" alt="Chart" />
+      </div>
+      <div class="report-section">
+        <h2>Detailed Analysis</h2>
+        <p>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+          eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
+          minim veniam, quis nostrud exercitation ullamco laboris nisi ut
+          aliquip ex ea commodo consequat.
+        </p>
+      </div>
+    </div>
+  </body>
+</html>

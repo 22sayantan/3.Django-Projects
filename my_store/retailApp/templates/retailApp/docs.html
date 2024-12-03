@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>document editing</title>
+  </head>
+  <body>
+    <h1>This is document editing Page</h1>
+    <input type="file" name="" id="fileInput" />
+    <div class="pdfViewer"></div>
+
+    <script src="pdfjsLib.min.js"></script>
+    <script>
+      const fileInput = document.getElementById("fileInput");
+      const pdfViewer = document.getElementById("pdfViewer");
+
+      fileInput.addEventListener("change", (event) => {
+        const file = event.target.files[0];
+
+        // Assuming you have a PDF.js library included
+        pdfjsLib.getDocument(file).promise.then((pdfDoc) => {
+          pdfDoc.getPage(1).then((page) => {
+            const scale = 1.5;
+            const viewport = page.getViewport({ scale });
+            const canvas = document.createElement("canvas");
+            const context = canvas.getContext("2d");
+            canvas.height = viewport.height;
+            canvas.width = viewport.width;
+            const renderContext = {
+              canvasContext: context,
+              viewport: viewport,
+            };
+            page.render(renderContext).promise.then(() => {
+              pdfViewer.appendChild(canvas);
+            });
+          });
+        });
+      });
+    </script>
+  </body>
+</html>

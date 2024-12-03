@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Job Portal</title>
+
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        margin: 20px;
+      }
+
+      header {
+        text-align: center;
+      }
+
+      nav ul {
+        list-style-type: none;
+        padding: 0;
+      }
+
+      nav li {
+        display: inline-block;
+        margin-right: 20px;
+      }
+
+      .job-search,
+      .featured-jobs,
+      .latest-jobs {
+        margin-bottom: 20px;
+      }
+
+      .featured-jobs ul,
+      .latest-jobs ul {
+        list-style-type: none;
+        padding: 0;
+      }
+
+      .featured-jobs li,
+      .latest-jobs li {
+        margin-bottom: 10px;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <h1>Job Portal</h1>
+      <nav>
+        <ul>
+          <li><a href="#">Home</a></li>
+          <li><a href="#">Job Search</a></li>
+          <li><a href="#">Employer Dashboard</a></li>
+          <li><a href="#">Candidate Dashboard</a></li>
+          <li><a href="#">Contact Us</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <main>
+      <section class="job-search">
+        <h2>Find Your Dream Job</h2>
+        <form>
+          <label for="keyword">Keyword:</label>
+          <input type="text" id="keyword" name="keyword" />
+
+          <label for="location">Location:</label>
+          <input type="text" id="location" name="location" />
+
+          <button type="submit">Search Jobs</button>
+        </form>
+      </section>
+
+      <section class="featured-jobs">
+        <h2>Featured Jobs</h2>
+        <ul>
+          <li>
+            <h3>Software Engineer</h3>
+            <p>Company: TechCorp</p>
+            <p>Location: Bengaluru</p>
+            <a href="#">Apply Now</a>
+          </li>
+        </ul>
+      </section>
+
+      <section class="latest-jobs">
+        <h2>Latest Jobs</h2>
+        <ul></ul>
+      </section>
+    </main>
+
+    <footer>
+      <p>&copy; 2023 Job Portal. All Rights Reserved.</p>
+    </footer>
+  </body>
+</html>

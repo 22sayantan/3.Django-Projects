@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Books</title>
+
+    <style>
+      .book_card {
+        height: 13rem;
+        width: 10rem;
+
+        border: 1px solid gray;
+        border-radius: 10px;
+
+        line-height: 0rem;
+        font-family: "Times New Roman", Times, serif;
+        text-transform: capitalize;
+        position: relative;
+      }
+
+      .book_card img {
+        height: 7rem;
+        width: 9rem;
+        margin: 0.45rem;
+        margin-bottom: 0;
+        border-radius: 5px;
+      }
+
+      .book_card h2,
+      h6 {
+        margin-left: 12px;
+        margin-right: 5px;
+      }
+
+      .book_card h2 {
+        margin-top: 1.5rem;
+        margin-bottom: -5px;
+      }
+      .book_card h6 {
+        line-height: 12px;
+        text-wrap: wrap;
+      }
+
+      .book_card .text_block {
+        height: 1.4rem;
+        width: 3.5rem;
+        background-color: red;
+        color: white;
+        border-radius: 8px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        position: absolute;
+        top: 2px;
+        right: 2px;
+      }
+      nav{
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        & button{
+            height: 2rem;
+            width: 6rem;
+            font-size: 16px;
+            background-color: transparent;
+            border: 1px solid gray;
+            border-radius: 10px;
+            font-weight: bold;
+            font-family: sans-serif;
+            cursor: pointer;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <nav>
+        <h1>books list page !</h1>
+        <a href="/library/books/New"><button>add book</button></a>
+    </nav>
+    <div class="book_card">
+      <img src="" alt="" />
+      <h2>book title</h2>
+      <h6>{jhon Doe} || {xyz publishers} || {technology} || {400} pages</h6>
+      <div class="text_block">
+        <h5>english</h5>
+      </div>
+    </div>
+  </body>
+</html>
